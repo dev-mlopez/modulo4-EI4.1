@@ -4,8 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio Individual 4.1</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <header>
+        <h1>Ejercicio Individual 4.1</h1>
+    </header>
+    <main>
+        <section id="registrarDatos">
+            <div id="contenedorRegistrarProyecto">
+                <h2>Registro de Proyectos</h2>
+                <ul>
+                    <li>
+                        <label for="nombreProyecto">Nombre del Proyecto</label>
+                        <input type="text" name="nombreProyecto" id="nombreProyecto" placeholder="Nombre del Proyecto">
+                    </li>
+                </ul>
+                <button>Registrar Proyecto</button>
+            </div>
+            <div id="contenedorRegistrarTrabajador">
+                <h2>Registro de Trabajadores</h2>
+                <ul>
+                    <li>
+                        <label for="nombreProyectoRegistrado">Nombre del Proyecto</label>
+                        <input type="text" name="nombreProyectoRegistrado" id="nombreProyectoRegistrado" placeholder="Nombre del Proyecto">
+                    </li>
+                    <li>
+                        <label for="nombreTrabajador">Nombre del Trabajador</label>
+                        <input type="text" name="nombreTrabajador" id="nombreTrabajador" placeholder="Nombre del Trabajador">
+                    </li>
+                    <li>
+                        <label for="rutTrabajador">Rut del Trabajador</label>
+                        <input type="text" name="rutTrabajador" id="rutTrabajador" placeholder="Rut del Trabajador">
+                    </li>
+                    <li>
+                        <label for="cargoTrabajador">Cargo del Trabajador</label>
+                        <input type="text" name="cargoTrabajador" id="cargoTrabajador" placeholder="Cargo del Trabajador">
+                    </li>
+                </ul>
+                <button>Registrar Trabajador</button>
+            </div>
+            <footer>
+                <p>Estudiante: Mauricio López</p>
+            </footer>
+        </section>
+        <section id="mostrarDatos">
+            <div id="contenedorMostrarProyectos">
+                <table>
+                    <caption>Proyectos Registrados</caption>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre de Proyecto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td>Ejercicio Grupal 4.1</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Ejercicio Grupal 4.2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="contenedorMostrarTrabajadores">
+                <table>
+                    <caption>Trabajadores Registrados</caption>
+                    <thead>
+                        <tr>
+                            <th>Nombre de Proyecto</th>
+                            <th>Nombre Trabajador</th>
+                            <th>Rut Trabajador</th>
+                            <th>Cargo Trabajador</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ejercicio Grupal 4.1</td>
+                            <td>Juan</td>
+                            <td>20583756-1</td>
+                            <td>Estudiante</td>
+                        </tr>
+                        <tr>
+                            <td>Ejercicio Grupal 4.1</td>
+                            <td>Mauricio</td>
+                            <td>20497354-7</td>
+                            <td>Estudiante</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
