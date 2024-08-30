@@ -20,7 +20,7 @@
                         <input type="text" name="nombreProyecto" id="nombreProyecto" placeholder="Nombre del Proyecto">
                     </li>
                 </ul>
-                <button>Registrar Proyecto</button>
+                <button id="registrarProyectoBtn">Registrar Proyecto</button>
             </div>
             <div id="contenedorRegistrarTrabajador">
                 <h2>Registro de Trabajadores</h2>
@@ -42,7 +42,7 @@
                         <input type="text" name="cargoTrabajador" id="cargoTrabajador" placeholder="Cargo del Trabajador">
                     </li>
                 </ul>
-                <button>Registrar Trabajador</button>
+                <button id="registrarTrabajadorBtn">Registrar Trabajador</button>
             </div>
             <footer>
                 <p>Estudiante: Mauricio López</p>
@@ -50,51 +50,13 @@
         </section>
         <section id="mostrarDatos">
             <div id="contenedorMostrarProyectos">
-                <table>
+                <table id="tablaProyectos">
                     <caption>Proyectos Registrados</caption>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre de Proyecto</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>0</td>
-                            <td>Ejercicio Grupal 4.1</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Ejercicio Grupal 4.2</td>
-                        </tr>
-                    </tbody>
                 </table>
             </div>
             <div id="contenedorMostrarTrabajadores">
-                <table>
+                <table id="tablaTrabajadores">
                     <caption>Trabajadores Registrados</caption>
-                    <thead>
-                        <tr>
-                            <th>Nombre de Proyecto</th>
-                            <th>Nombre Trabajador</th>
-                            <th>Rut Trabajador</th>
-                            <th>Cargo Trabajador</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Ejercicio Grupal 4.1</td>
-                            <td>Juan</td>
-                            <td>20583756-1</td>
-                            <td>Estudiante</td>
-                        </tr>
-                        <tr>
-                            <td>Ejercicio Grupal 4.1</td>
-                            <td>Mauricio</td>
-                            <td>20497354-7</td>
-                            <td>Estudiante</td>
-                        </tr>
-                    </tbody>
                 </table>
             </div>
         </section>

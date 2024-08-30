@@ -28,7 +28,6 @@ main {
 
 #registrarDatos {
     background-color: var(--secondary-color);
-    border-right: 1px solid var(--black-color);
     display: flex;
     position: relative;
     flex-direction: column;
@@ -114,6 +113,8 @@ footer p {
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
+    border-top: 1px solid var(--black-color);
+    border-left: 1px solid var(--black-color);
 }
 
 #mostrarDatos div {
