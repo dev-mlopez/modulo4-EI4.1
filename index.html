@@ -44,23 +44,42 @@
                 </ul>
                 <button id="registrarTrabajadorBtn">Registrar Trabajador</button>
             </div>
+            <div id="contenedorBuscarTrabajadorEnProyecto">
+                <h2>Buscar trabajadores por Proyecto</h2>
+                <ul>
+                    <li>
+                        <label for="nombreProyectoBuscado">Nombre del Proyecto</label>
+                        <input type="text" name="nombreProyectoBuscado" id="nombreProyectoBuscado" placeholder="Nombre del Proyecto">
+                    </li>
+                </ul>
+                <button id="buscarProyectoBtn">Buscar</button>
+            </div>
             <footer>
                 <p>Estudiante: Mauricio López</p>
             </footer>
         </section>
         <section id="mostrarDatos">
-            <div id="contenedorMostrarProyectos">
-                <table id="tablaProyectos">
-                    <caption>Proyectos Registrados</caption>
-                </table>
+            <div id="contenedorMostrarDatos">
+                <h2>Mostrar Datos Registrados</h2>
+                <div id="contenedorMostrarProyectos">
+                    <table id="tablaProyectos">
+                        <caption>Proyectos Registrados</caption>
+                    </table>
+                </div>
+                <div id="contenedorMostrarTrabajadores">
+                    <table id="tablaTrabajadores">
+                        <caption>Trabajadores Registrados</caption>
+                    </table>
+                </div>
             </div>
-            <div id="contenedorMostrarTrabajadores">
-                <table id="tablaTrabajadores">
-                    <caption>Trabajadores Registrados</caption>
-                </table>
+            <div id="contenedorMostrarTrabajadoresPorProyecto">
+                <h2>Mostrar Datos Buscados</h2>
+                    <table id="tablaTrabajadoresPorProyecto">
+                    </table>
+
             </div>
         </section>
     </main>
-    <script src="assets/js/script.js"></script>
+    <script type="module" src="assets/js/script.js"></script>
 </body>
 </html>

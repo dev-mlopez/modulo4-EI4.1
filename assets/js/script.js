@@ -1,79 +1,5 @@
-class Proyecto {
-    static contadorId = 0;
-
-    constructor(nombreProyecto) {
-        this.idProyecto = Proyecto.contadorId++;
-        this.nombreProyecto = nombreProyecto;
-        this.trabajadores = [];
-    }
-
-    getIdProyecto = () => this.idProyecto;
-
-    getNombreProyecto = () => this.nombreProyecto;
-    setNombreProyecto = nombreProyecto => this.nombreProyecto = nombreProyecto;
-
-    getTrabajadores = () => this.trabajadores;
-    setTrabajadores = trabajadores => this.trabajadores = trabajadores;
-
-    registrarTrabajador = trabajador => this.trabajadores.push(trabajador);
-
-    buscarTrabajadorPorNombre = nombre => this.trabajadores.find(trabajador => trabajador.nombre === nombre);
-
-    mostrarTrabajadores($tablaTrabajadores) {
-        // this.trabajadores.forEach(trabajador => {
-        //     $tablaTrabajadoresCuerpo.innerHTML += `
-        //         <tr>
-        //             <td>${this.getNombreProyecto()}</td>
-        //             <td>${trabajador.getNombre()}</td>
-        //             <td>${trabajador.getRut()}</td>
-        //             <td>${trabajador.getCargo()}</td>
-        //         </tr>
-        //     `;
-        //     $tablaTrabajadores.appendChild($tablaTrabajadoresCuerpo);
-        // })
-        console.log(trabajadores)
-            $tablaTrabajadoresCuerpo.innerHTML += `
-                <tr>
-                    <td>${this.getNombreProyecto()}</td>
-                    <td>${trabajadores.getNombre()}</td>
-                    <td>${trabajadores.getRut()}</td>
-                    <td>${trabajadores.getCargo()}</td>
-                </tr>
-            `;
-            $tablaTrabajadores.appendChild($tablaTrabajadoresCuerpo);
-    }
-
-    mostrarDatos = () => {
-        let texto = `Datos del proyecto: \nID: ${this.idProyecto} \nNombre del proyecto: ${this.nombreProyecto} \nDatos de trabajadores registrados en el proyecto:\n---------`;
-        this.trabajadores.forEach((trabajador) => 
-            texto += `\nID: ${trabajador.getIdTrabajador()}\nNombre: ${trabajador.getNombre()}\nRut: ${trabajador.getRut()}\nCargo: ${trabajador.getCargo()}\n---------`);
-        return texto;
-    }
-}
-
-class Trabajador {
-    static contadorId = 0;
-
-    constructor(nombre, rut, cargo) {
-        this.idTrabajador = Trabajador.contadorId++;
-        this.nombre = nombre;
-        this.rut = rut;
-        this.cargo = cargo;
-    }
-
-    getIdTrabajador = () => this.idTrabajador;
-
-    getNombre = () => this.nombre;
-    setNombre = nombre => this.nombre = nombre;
-
-    getRut = () => this.rut;
-    setRut = (rut) => this.rut = rut;
-
-    getCargo = () => this.cargo;
-    setCargo = (cargo) => this.cargo = cargo;
-
-    mostrarDatos = () => `Datos trabajador: \nID: ${this.idTrabajador} \nNombre: ${this.nombre}, \nRut: ${this.rut}, \nCargo: ${this.cargo}`;
-}
+import Proyecto from "./POO/proyecto.js";
+import Trabajador from "./POO/trabajador.js";
 
 const d = document;
 
@@ -106,7 +32,13 @@ let proyectos = [
         nombreTrabajador: "Juan",
         rutTrabajador: "16473659-2",
         cargoTrabajador: "Profesor"
-    }
+    },
+    {
+        nombreProyecto: "Ejercicio Individual 1",
+        nombreTrabajador: "Miguel",
+        rutTrabajador: "18473947-1",
+        cargoTrabajador: "Estudiante"
+    },
 ];
 
 const buscarProyecto = nombreProyecto => proyectos.find(proyecto => proyecto.getNombreProyecto() === nombreProyecto)
@@ -117,13 +49,22 @@ trabajadores.forEach(trabajador => {
     agregarTrabajador(trabajador.nombreProyecto, nuevoTrabajador);
 })
 
+function obtenerNombreProyecto() {
+    let nombreProyecto = d.getElementById("nombreProyectoBuscado").value;
+    let proyecto = buscarProyecto(nombreProyecto);
+    if(proyecto) {
+        proyecto.mostrarTrabajadores()
+        d.getElementById("nombreProyectoBuscado").value = "";
+    } else {
+        alert(`El proyecto ${nombreProyecto} no existe`)
+    }
+}
+
 function registrarProyectos() {
-    const nombreProyecto = d.getElementById("nombreProyecto").value;
-    const proyecto = new Proyecto(nombreProyecto);
+    const proyecto = new Proyecto(d.getElementById("nombreProyecto").value);
     proyectos.push(proyecto);
     mostrarProyectos(proyecto);
-    const $nombreProyecto = d.getElementById("nombreProyecto")
-    $nombreProyecto.value = "";
+    d.getElementById("nombreProyecto") = "";
 }
 
 function registrarTrabajadores() {
@@ -135,17 +76,20 @@ function registrarTrabajadores() {
     let proyecto = buscarProyecto(nombreProyecto);
     if(proyecto) {
         const trabajador = new Trabajador(
-            d.getElementById("nombreTrabajador").value, 
-            d.getElementById("rutTrabajador").value, 
-            d.getElementById("cargoTrabajador").value
+            nombreTrabajador, 
+            rutTrabajador, 
+            cargoTrabajador
         );
-        console.log("buscando")
         trabajadores.push({nombreProyecto: nombreProyecto,
             nombreTrabajador: nombreTrabajador,
             rutTrabajador: rutTrabajador,
             cargoTrabajador: cargoTrabajador
         });
         agregarTrabajador(nombreProyecto, trabajador);
+        d.getElementById("nombreProyectoRegistrado").value = "";
+        d.getElementById("nombreTrabajador").value = "";
+        d.getElementById("rutTrabajador").value = "";
+        d.getElementById("cargoTrabajador").value = "";
     } else {
         alert(`El proyecto ${nombreProyecto} no existe`)
     }
@@ -206,4 +150,8 @@ d.getElementById("registrarProyectoBtn").addEventListener("click", e => {
 
 d.getElementById("registrarTrabajadorBtn").addEventListener("click", e => {
     registrarTrabajadores();
+})
+
+d.getElementById("buscarProyectoBtn").addEventListener("click", e => {
+    obtenerNombreProyecto();
 })
